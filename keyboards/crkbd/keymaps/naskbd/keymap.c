@@ -72,9 +72,9 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_HASH, KC_AMPR, KC_DLR , KC_AT  , KC_ASTR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_COLN, KC_DQUO, KC_LPRN, KC_LBRC, KC_LCBR, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
+      KC_COLN, KC_DQUO, KC_LBRC, KC_LCBR, KC_LPRN, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_PIPE, KC_PERC, KC_RPRN, KC_RBRC, KC_RCBR, KC_TILD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_PIPE, KC_PERC, KC_RBRC, KC_RCBR, KC_RPRN, KC_TILD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_MINS, KC_QUES, KC_UNDS,    _______, XXXXXXX, XXXXXXX
   ),

@@ -19,17 +19,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 // home row mods
-#define HR_A MT(MOD_LGUI, KC_A)
-#define HR_S MT(MOD_LALT, KC_S)
-#define HR_D MT(MOD_LCTL, KC_D)
-#define HR_F MT(MOD_LSFT, KC_F)
-#define HR_G MT(MOD_RALT, KC_G)
-
-#define HR_H MT(MOD_RALT, KC_H)
-#define HR_J MT(MOD_RSFT, KC_J)
-#define HR_K MT(MOD_RCTL, KC_K)
-#define HR_L MT(MOD_LALT, KC_L)
-#define HR_SCLN MT(MOD_RGUI, KC_SCLN)
+#define HRGUI(key) MT(MOD_LGUI, key)
+#define HRALT(key) MT(MOD_LALT, key)
+#define HRCTL(key) MT(MOD_LCTL, key)
+#define HRSFT(key) MT(MOD_LSFT, key)
+#define HRAGR(key) MT(MOD_RALT, key)
 
 // layer taps
 #define TAB_MAC LT(_MAC, KC_TAB)
@@ -55,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                      KC_Y   , KC_U   , KC_I   , KC_O   , KC_P  ,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_TILD, HR_A   , HR_S   , HR_D   , HR_F   , HR_G   ,                      HR_H   , HR_J   , HR_K   , HR_L   , HR_SCLN, KC_QUOT,
+KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(KC_H), HRSFT(KC_J), HRCTL(KC_K), HRALT(KC_L), HRGUI(KC_SCLN), KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                      KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -78,9 +72,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_HASH, KC_AMPR, KC_DLR , KC_AT  , KC_ASTR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_COLN, KC_DQUO, KC_LBRC, KC_LPRN, KC_LCBR, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
+      KC_COLN, KC_DQUO, KC_LPRN, KC_LBRC, KC_LCBR, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_PIPE, KC_PERC, KC_RBRC, KC_RPRN, KC_RCBR, KC_TILD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_PIPE, KC_PERC, KC_RPRN, KC_RBRC, KC_RCBR, KC_TILD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_MINS, KC_QUES, KC_UNDS,    _______, XXXXXXX, XXXXXXX
   ),

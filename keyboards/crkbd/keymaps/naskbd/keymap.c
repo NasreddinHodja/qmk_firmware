@@ -18,21 +18,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-// home row mods
+// mods
 #define HRGUI(key) MT(MOD_LGUI, key)
 #define HRALT(key) MT(MOD_LALT, key)
 #define HRCTL(key) MT(MOD_LCTL, key)
 #define HRSFT(key) MT(MOD_LSFT, key)
 #define HRAGR(key) MT(MOD_RALT, key)
-
-// layer taps
-#define TAB_MAC LT(_MAC, KC_TAB)
-#define ESC_NAV LT(_NAV, KC_ESC)
-#define BSP_MOU LT(_MOU, KC_BSPC)
-
-#define ENT_SYM LT(_SYM, KC_ENT)
-#define SPC_NUM LT(_NUM, KC_SPC)
-#define MIN_FUN LT(_FUN, KC_MINS)
 
 enum layers {
     _BASE,
@@ -54,7 +45,7 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                      KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          TAB_MAC, ESC_NAV, BSP_MOU,    ENT_SYM, SPC_NUM, MIN_FUN
+              LT(_MAC, KC_TAB), LT(_NAV, KC_ESC), LT(_MOU, KC_BSPC),    LT(_SYM, KC_ENT), LT(_NUM, KC_SPC), LT(_FUN, KC_MINS)
                                       //`--------------------------'  `--------------------------'
     ),
 
@@ -71,13 +62,13 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
 
     [_SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_HASH, KC_PERC, KC_RBRC, KC_RCBR, KC_RPRN, KC_TILD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_PIPE, KC_AT  , KC_DLR , KC_AMPR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_COLN, KC_DQUO, KC_LBRC, KC_LCBR, KC_LPRN, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_PIPE, KC_AT  , KC_DLR , KC_AMPR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_PERC, KC_RBRC, KC_RCBR, KC_RPRN, KC_GRV ,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_MINS, KC_QUES, KC_UNDS,    _______, XXXXXXX, XXXXXXX
+                                          KC_HASH, KC_QUES, KC_UNDS,    _______, XXXXXXX, XXXXXXX
     ),
 
     [_NAV] = LAYOUT_split_3x6_3(

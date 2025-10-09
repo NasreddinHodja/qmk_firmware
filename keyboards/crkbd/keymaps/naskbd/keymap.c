@@ -27,8 +27,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum layers {
     _BASE,
-    _NUM,
     _SYM,
+    _NUM,
     _NAV,
     _MOU,
     _FUN,
@@ -45,8 +45,19 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                      KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-              LT(_MAC, KC_TAB), LT(_NAV, KC_ESC), LT(_MOU, KC_BSPC),    LT(_SYM, KC_ENT), LT(_NUM, KC_SPC), LT(_FUN, KC_MINS)
+              LT(_MAC, KC_TAB), LT(_NAV, KC_ESC), LT(_MOU, KC_BSPC),    LT(_NUM, KC_ENT), LT(_SYM, KC_SPC), LT(_FUN, KC_MINS)
                                       //`--------------------------'  `--------------------------'
+    ),
+
+    [_SYM] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      KC_BSLS, KC_PIPE, KC_AT  , KC_DLR , KC_AMPR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      KC_COLN, KC_DQUO, KC_LBRC, KC_LCBR, KC_LPRN, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, KC_PERC, KC_RBRC, KC_RCBR, KC_RPRN, KC_GRV ,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          KC_HASH, KC_QUES, KC_UNDS,    XXXXXXX, _______, XXXXXXX
     ),
 
     [_NUM] = LAYOUT_split_3x6_3(
@@ -57,18 +68,7 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_PSLS, KC_PAST, KC_PPLS, KC_PEQL, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_MINS, KC_DOT , KC_COMM,    XXXXXXX, _______, XXXXXXX
-    ),
-
-    [_SYM] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_PIPE, KC_AT  , KC_DLR , KC_AMPR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_COLN, KC_DQUO, KC_LBRC, KC_LCBR, KC_LPRN, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_PERC, KC_RBRC, KC_RCBR, KC_RPRN, KC_GRV ,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_HASH, KC_QUES, KC_UNDS,    _______, XXXXXXX, XXXXXXX
+                                          KC_MINS, KC_DOT , KC_COMM,    _______, XXXXXXX, XXXXXXX
     ),
 
     [_NAV] = LAYOUT_split_3x6_3(

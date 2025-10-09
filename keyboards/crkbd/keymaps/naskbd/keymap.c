@@ -77,9 +77,9 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_4   , KC_3   , KC_2   , KC_1   , KC_0   ,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_PSLS, KC_PAST, KC_PPLS, KC_PEQL, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_MINS, KC_PAST, KC_PLUS , KC_PEQL, KC_SLSH,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_MINS, KC_DOT , KC_COMM,    _______, XXXXXXX, XXXXXXX
+                                          XXXXXXX, KC_DOT , KC_COMM,    _______, XXXXXXX, XXXXXXX
     ),
 
     [_NAV] = LAYOUT_split_3x6_3(

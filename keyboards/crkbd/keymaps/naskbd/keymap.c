@@ -16,9 +16,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <stdint.h>
 #include QMK_KEYBOARD_H
 
-// mods
+// base mods
+#define HRGUI(key) MT(MOD_LGUI, key)
+#define HRALT(key) MT(MOD_LALT, key)
+#define HRCTL(key) MT(MOD_LCTL, key)
+#define HRSFT(key) MT(MOD_LSFT, key)
+#define HRAGR(key) MT(MOD_RALT, key)
+
+// sym mods
 #define SYM_LGUI LGUI_T(KC_0)
 #define SYM_LALT LALT_T(KC_1)
 #define SYM_LCTL LCTL_T(KC_2)
@@ -27,12 +35,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SYM_RALT LALT_T(KC_5)
 #define SYM_RCTL LCTL_T(KC_6)
 #define SYM_RSFT LSFT_T(KC_7)
-
-#define HRGUI(key) MT(MOD_LGUI, key)
-#define HRALT(key) MT(MOD_LALT, key)
-#define HRCTL(key) MT(MOD_LCTL, key)
-#define HRSFT(key) MT(MOD_LSFT, key)
-#define HRAGR(key) MT(MOD_RALT, key)
 
 /* const key_override_t lbrc_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC); */
 /* const key_override_t lcbr_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR); */
@@ -44,6 +46,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*     &lcbr_ko, */
 /*     &lprn_ko, */
 /* }; */
+
+// combos
+const uint16_t PROGMEM tab_combo[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM dquote_combo[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM tilde_combo[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM circ_combo[] = {KC_U, KC_I, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(tab_combo, KC_TAB),
+    COMBO(dquote_combo, KC_DQUO),
+    COMBO(circ_combo, KC_CIRC),
+    COMBO(tilde_combo, KC_TILD),
+};
 
 enum layers {
     _BASE,
@@ -74,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, SYM_LGUI, SYM_LALT, SYM_LCTL, SYM_LSFT, KC_QUOT,                  KC_GRV , SYM_RSFT, SYM_RCTL, SYM_RALT, SYM_RGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_EQL , KC_QUES, XXXXXXX,
+      XXXXXXX, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_EQL , KC_PLUS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, KC_MINS, KC_UNDS,    XXXXXXX, _______, XXXXXXX
     ),
@@ -85,9 +100,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLU,                      KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_TAB , XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_VOLD, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END , XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_VOLD, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END , KC_CAPS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, XXXXXXX,    KC_CAPS, KC_DEL , KC_INS
+                                          XXXXXXX, _______, XXXXXXX,    KC_INS , KC_DEL , XXXXXXX
                                       //`--------------------------'  `--------------------------'
     ),
 
@@ -95,11 +110,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, KC_AGIN, KC_UNDO, KC_PSTE, KC_COPY, KC_CUT ,                      KC_CUT , KC_COPY, KC_PSTE, KC_UNDO, KC_AGIN, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_VOLD, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLU,                      MS_LEFT, MS_DOWN, MS_UP  , MS_RGHT, KC_TAB , XXXXXXX,
+      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_VOLU,                      MS_LEFT, MS_DOWN, MS_UP  , MS_RGHT, KC_TAB , XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT,                      MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_VOLD, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT,                      MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, MS_BTN3, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, _______,    MS_BTN2, MS_BTN1, MS_BTN3
+                                          XXXXXXX, XXXXXXX, _______,    MS_BTN2, MS_BTN1, XXXXXXX
                                       //`--------------------------'  `--------------------------'
     ),
 

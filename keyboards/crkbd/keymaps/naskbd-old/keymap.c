@@ -19,31 +19,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 // mods
-#define SYM_LGUI LGUI_T(KC_0)
-#define SYM_LALT LALT_T(KC_1)
-#define SYM_LCTL LCTL_T(KC_2)
-#define SYM_LSFT LSFT_T(KC_3)
-#define SYM_RGUI LGUI_T(KC_4)
-#define SYM_RALT LALT_T(KC_5)
-#define SYM_RCTL LCTL_T(KC_6)
-#define SYM_RSFT LSFT_T(KC_7)
-
 #define HRGUI(key) MT(MOD_LGUI, key)
 #define HRALT(key) MT(MOD_LALT, key)
 #define HRCTL(key) MT(MOD_LCTL, key)
 #define HRSFT(key) MT(MOD_LSFT, key)
 #define HRAGR(key) MT(MOD_RALT, key)
 
-/* const key_override_t lbrc_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC); */
-/* const key_override_t lcbr_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR); */
-/* const key_override_t lprn_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LPRN, KC_RPRN); */
+const key_override_t lbrc_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC);
+const key_override_t lcbr_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR);
+const key_override_t lprn_ko = ko_make_basic(MOD_MASK_SHIFT, KC_LPRN, KC_RPRN);
 
-/* // This globally defines all key overrides to be used */
-/* const key_override_t *key_overrides[] = { */
-/*     &lbrc_ko, */
-/*     &lcbr_ko, */
-/*     &lprn_ko, */
-/* }; */
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+    &lbrc_ko,
+    &lcbr_ko,
+    &lprn_ko,
+};
 
 enum layers {
     _BASE,
@@ -71,14 +62,13 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
 
     [_SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_BSLS, KC_PIPE, KC_AT  , KC_DLR , KC_AMPR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_PIPE, KC_AT  , KC_DLR , KC_AMPR, KC_EXLM,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      /* KC_COLN, KC_DQUO, KC_LBRC, KC_LCBR, KC_LPRN, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX, */
-      KC_COLN, SYM_LGUI, SYM_LALT, SYM_LCTL, SYM_LSFT, KC_CIRC,                  KC_RALT, SYM_RSFT, SYM_RCTL, SYM_RALT, SYM_RGUI, XXXXXXX,
+      XXXXXXX, KC_DQUO, KC_LBRC, KC_LCBR, KC_LPRN, KC_CIRC,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_PERC, KC_RBRC, KC_RCBR, KC_RPRN, KC_GRV ,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_PERC, KC_COLN, KC_BSLS, KC_HASH, KC_GRV ,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_HASH, KC_QUES, KC_UNDS,    XXXXXXX, _______, XXXXXXX
+                                          XXXXXXX, KC_QUES, KC_UNDS,    XXXXXXX, _______, XXXXXXX
     ),
 
     [_NUM] = LAYOUT_split_3x6_3(
@@ -87,9 +77,9 @@ KC_TILD, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_4   , KC_3   , KC_2   , KC_1   , KC_0   ,                      KC_RALT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_PSLS, KC_PAST, KC_PPLS, KC_PEQL, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_MINS, KC_PAST, KC_PLUS , KC_PEQL, KC_SLSH,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_MINS, KC_DOT , KC_COMM,    _______, XXXXXXX, XXXXXXX
+                                          XXXXXXX, KC_DOT , KC_COMM,    _______, XXXXXXX, XXXXXXX
     ),
 
     [_NAV] = LAYOUT_split_3x6_3(
@@ -161,19 +151,3 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [3] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(RM_VALD, RM_VALU), ENCODER_CCW_CW(KC_RGHT, KC_LEFT), },
 };
 #endif
-
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  switch (keycode) {
-    case SYM_LGUI:  // GUI on hold, KC_ on tap
-      if (record->tap.count) {  // On tap.
-        if (record->event.pressed) {  // On press.
-          tap_code16(KC_PLUS);
-        }
-        return false;  // Skip default handling.
-      }
-      break;
-
-    // Other macros...
-  }
-  return true;  // Continue default handling.
-}

@@ -50,14 +50,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // combos
 const uint16_t PROGMEM tab_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM dquote_combo[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM quote_combo[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM tilde_combo[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM circ_combo[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM circ_combo[] = {KC_M, KC_COMM, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(tab_combo, KC_TAB),
     COMBO(dquote_combo, KC_DQUO),
-    COMBO(circ_combo, KC_CIRC),
+    COMBO(quote_combo, KC_QUOT),
     COMBO(tilde_combo, KC_TILD),
+    COMBO(circ_combo, KC_CIRC),
 };
 
 enum layers {

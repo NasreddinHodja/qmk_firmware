@@ -20,11 +20,17 @@
 #define SYM_RSFT LSFT_T(KC_7)
 
 // overrides
-/* const key_override_t vol_ko = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_VOLD); */
+const key_override_t home_ko = ko_make_basic(MOD_MASK_CTRL, KC_HOME, MS_WHLL);
+const key_override_t pgdn_ko = ko_make_basic(MOD_MASK_CTRL, KC_PGDN, MS_WHLD);
+const key_override_t pgup_ko = ko_make_basic(MOD_MASK_CTRL, KC_PGUP, MS_WHLU);
+const key_override_t end_ko = ko_make_basic(MOD_MASK_CTRL, KC_END, MS_WHLR);
 
-/* const key_override_t *key_overrides[] = { */
-/*     &vol_ko, */
-/* }; */
+const key_override_t *key_overrides[] = {
+    &home_ko,
+    &pgdn_ko,
+    &pgup_ko,
+    &end_ko,
+};
 
 // combos
 const uint16_t PROGMEM tab_combo[] = {KC_W, KC_E, COMBO_END};

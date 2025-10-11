@@ -1,5 +1,7 @@
 #include <stdint.h>
 
+#include "raw_hid.h"
+
 #include QMK_KEYBOARD_H
 
 // base mods
@@ -219,4 +221,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   }
 
   return true;
+}
+
+const char* layer_names[] = {
+    [0] = "BASE",
+    [1] = "SYM",
+    [2] = "NAV",
+    [3] = "MOU",
+    [4] = "FUN",
+    [5] = "GAM",
+    [6] = "GNM",
+};
+
+#define NUM_LAYERS (sizeof(layer_names) / sizeof(layer_names[0]))
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    uint8_t layer = get_highest_layer(state);
+
+    uint8_t report[32] = {0};
+    report[0] = 0x01;  // message type
+    report[1] = layer;  // layer number
+
+    const char* layer_name = (layer < NUM_LAYERS && layer_names[layer] != NULL)
+                              ? layer_names[layer]
+                              : "UNKNOWN";
+
+    strncpy((char*)&report[2], layer_name, 30);
+
+    raw_hid_send(report, 32);
+
+    return state;
 }

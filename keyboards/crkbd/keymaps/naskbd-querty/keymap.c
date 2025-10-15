@@ -27,29 +27,24 @@ const key_override_t pgdn_ko = ko_make_basic(MOD_MASK_CTRL, KC_PGDN, MS_WHLD);
 const key_override_t pgup_ko = ko_make_basic(MOD_MASK_CTRL, KC_PGUP, MS_WHLU);
 const key_override_t end_ko = ko_make_basic(MOD_MASK_CTRL, KC_END, MS_WHLR);
 
-const key_override_t dmrec_ko = ko_make_basic(MOD_MASK_CTRL, DM_REC1, DM_REC2);
-const key_override_t dmply_ko = ko_make_basic(MOD_MASK_CTRL, DM_PLY1, DM_PLY2);
-
 const key_override_t *key_overrides[] = {
     &home_ko,
     &pgdn_ko,
     &pgup_ko,
     &end_ko,
-    &dmrec_ko,
-    &dmply_ko,
 };
 
 // combos
-const uint16_t PROGMEM tab_combo[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM quote_combo[] = {KC_F, KC_P, COMBO_END};
-const uint16_t PROGMEM dquote_combo[] = {KC_L, KC_U, COMBO_END};
-const uint16_t PROGMEM tilde_combo[] = {KC_U, KC_Y, COMBO_END};
-const uint16_t PROGMEM circ_combo[] = {KC_H, KC_COMM, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM dquote_combo[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM quote_combo[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM tilde_combo[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM circ_combo[] = {KC_M, KC_COMM, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(tab_combo, KC_TAB),
-    COMBO(quote_combo, KC_QUOT),
     COMBO(dquote_combo, KC_DQUO),
+    COMBO(quote_combo, KC_QUOT),
     COMBO(tilde_combo, KC_TILD),
     COMBO(circ_combo, KC_CIRC),
 };
@@ -67,11 +62,11 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        XXXXXXX, KC_Q   , KC_W   , KC_F   , KC_P   , KC_B   ,                      KC_J   , KC_L   , KC_U   , KC_Y   , KC_SCLN, XXXXXXX,
+    XXXXXXX, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                      KC_Y   , KC_U   , KC_I   , KC_O   , KC_P  ,  XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, HRGUI(KC_A), HRALT(KC_R), HRCTL(KC_S), HRSFT(KC_T), HRAGR(KC_G), HRAGR(KC_M), HRSFT(KC_N), HRCTL(KC_E), HRALT(KC_I), HRGUI(KC_O), XXXXXXX,
+        XXXXXXX, HRGUI(KC_A), HRALT(KC_S), HRCTL(KC_D), HRSFT(KC_F), HRAGR(KC_G), HRAGR(KC_H), HRSFT(KC_J), HRCTL(KC_K), HRALT(KC_L), HRGUI(KC_SCLN), XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, KC_Z   , KC_X   , KC_C   , KC_D   , KC_V   ,                      KC_K   , KC_H   , KC_COMM, KC_DOT , KC_SLSH, XXXXXXX,
+        XXXXXXX, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                      KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                         XXXXXXX, LT(_NAV, KC_ESC), LT(_MOU, KC_BSPC),         LT(_FUN, KC_ENT), LT(_SYM, KC_SPC), XXXXXXX
                                         //`--------------------------'  `--------------------------'
@@ -114,11 +109,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FUN] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        XXXXXXX, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PAUS,                      TG(_GAM),DM_PLY1, DM_REC1, DM_RSTP, XXXXXXX, XXXXXXX,
+        XXXXXXX, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PAUS,                      XXXXXXX,TG(_GAM), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_PSCR,                      QK_BOOT, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, KC_F9  , KC_F10 , KC_F11 , KC_F12 , XXXXXXX,                      QK_LOCK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, KC_F9  , KC_F10 , KC_F11 , KC_F12 , XXXXXXX,                      XXXXXXX, QK_LOCK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             XXXXXXX, KC_APP , XXXXXXX,    _______, XXXXXXX, XXXXXXX
                                         //`--------------------------'  `--------------------------'

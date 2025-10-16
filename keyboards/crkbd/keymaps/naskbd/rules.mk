@@ -5,3 +5,7 @@ COMBO_ENABLE = yes
 KEY_OVERRIDE_ENABLE = yes
 RAW_ENABLE = yes
 DYNAMIC_MACRO_ENABLE = yes
+
+SRC += monke.c
+SRC += samara.c
+SRC += ree.c

@@ -50,16 +50,16 @@ const key_override_t* key_overrides[] = {
 };
 
 // combos
-const uint16_t PROGMEM tab_combo[]    = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM quote_combo[]  = {KC_F, KC_P, COMBO_END};
-const uint16_t PROGMEM dquote_combo[] = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM quote_combo[]    = {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM dquote_combo[]  = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM circ_combo[]   = {KC_L, KC_U, COMBO_END};
 const uint16_t PROGMEM tilde_combo[]  = {KC_U, KC_Y, COMBO_END};
-const uint16_t PROGMEM circ_combo[]   = {KC_H, KC_COMM, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(tab_combo, KC_TAB),
     COMBO(quote_combo, KC_QUOT),
     COMBO(dquote_combo, KC_DQUO),
+    COMBO(tab_combo, KC_TAB),
     COMBO(tilde_combo, KC_TILD),
     COMBO(circ_combo, KC_CIRC),
 };
